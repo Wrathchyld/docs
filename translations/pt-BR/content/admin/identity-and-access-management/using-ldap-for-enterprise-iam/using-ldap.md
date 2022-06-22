@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.product_name %} by configuring LDAP authentication for your instance.'
+intro: 'Se você usar o Lightweight Directory Access Protocol (LDAP) para centralizar o acesso em todos os aplicativos, você poderá integrar o {% data variables.product.product_name %} configurando autenticação do LDAP para sua instância.'
 versions:
   ghes: '*'
 type: how_to
@@ -22,11 +22,11 @@ topics:
   - Identity
 ---
 
-## About LDAP authentication for {% data variables.product.product_name %}
+## Sobre a autenticação do LDAP para {% data variables.product.product_name %}
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+O LDAP é um protocolo popular do aplicativo para acesso e manutenção de serviços de informações de diretórios e é um dos protocolos mais comuns para integração de softwares de terceiros com grandes diretórios de usuários da empresa. Para obter mais informações, consulte "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" na Wikipedia.
 
-If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.product.product_location %}.
+Se você usar um diretório do LDAP para autenticação centralizada, você poderá configurar a autenticação do LDAP para as pessoas que usam {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -43,7 +43,7 @@ O {% data variables.product.prodname_ghe_server %} se integra aos seguintes serv
 
 ## Considerações de nome de usuário no LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
 ## Configurar o LDAP na {% data variables.product.product_location %}
 
@@ -113,7 +113,7 @@ Quando esta opção estiver selecionada, o certificado será validado para garan
 
 {% endnote %}
 
-A Sincronização LDAP permite sincronizar os usuários do {% data variables.product.prodname_ghe_server %} e a associação da equipe nos seus grupos LDAP estabelecidos. Assim, é possível estabelecer o controle de acesso baseado em função para os usuários do seu servidor LDAP, em vez de fazer isso manualmente no {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Criar equipes](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)".
+A Sincronização LDAP permite sincronizar os usuários do {% data variables.product.prodname_ghe_server %} e a associação da equipe nos seus grupos LDAP estabelecidos. Assim, é possível estabelecer o controle de acesso baseado em função para os usuários do seu servidor LDAP, em vez de fazer isso manualmente no {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Criar equipes](/enterprise/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)".
 
 Para habilitar a Sincronização LDAP, selecione **Synchronize Emails** (Sincronizar e-mails), **Synchronize SSH Keys** (Sincronizar chaves SSH) ou **Synchronize GPG Keys** (Sincronizar chaves GPG) nas configurações LDAP.
 
@@ -187,8 +187,8 @@ O {% data variables.product.prodname_ghe_server %} é compatível com as seguint
 Se a [Sincronização LDAP estiver desabilitada](#enabling-ldap-sync), as alterações nas contas LDAP não serão sincronizadas automaticamente com o {% data variables.product.prodname_ghe_server %}.
 
 * Para usar um novo grupo de administradores LDAP, os usuários devem ser promovidos e rebaixados manualmente no {% data variables.product.prodname_ghe_server %} a fim de refletir as mudanças no LDAP.
-* Para adicionar ou remover contas LDAP nos grupos de administração LDAP, [promova ou rebaixe as contas no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
-* Para remover contas LDAP, [suspenda as contas do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users).
+* Para adicionar ou remover contas LDAP nos grupos de administração LDAP, [promova ou rebaixe as contas no {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/promoting-or-demoting-a-site-administrator).
+* Para remover contas LDAP, [suspenda as contas do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
 
 ### Sincronizar contas LDAP manualmente
 
@@ -200,10 +200,10 @@ Se a [Sincronização LDAP estiver desabilitada](#enabling-ldap-sync), as altera
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. Em "LDAP," clique em **Sync now** (Sincronizar agora) para atualizar manualmente a conta com os dados do seu servidor LDAP. ![Botão LDAP sync now (Sincronizar LDAP agora)](/assets/images/enterprise/site-admin-settings/ldap-sync-now-button.png)
 
-Você também pode [usar a API para acionar uma sincronização manual](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap).
+Você também pode [usar a API para acionar uma sincronização manual](/enterprise/user/rest/reference/enterprise-admin#ldap).
 
 ## Revogar o acesso à {% data variables.product.product_location %}
 
 Se a [Sincronização LDAP estiver habilitada](#enabling-ldap-sync), remover as credenciais LDAP do usuário suspenderá a conta do usuário após a execução de sincronização seguinte.
 
-Se a Sincronização LDAP **não** estiver habilitada, você deve suspender manualmente a conta do {% data variables.product.prodname_ghe_server %} após remover as credenciais LDAP. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)".
+Se a Sincronização LDAP **não** estiver habilitada, você deve suspender manualmente a conta do {% data variables.product.prodname_ghe_server %} após remover as credenciais LDAP. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".

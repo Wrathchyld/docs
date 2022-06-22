@@ -1,7 +1,7 @@
 ---
 title: Configurar el inicio de sesión único de SAML para tu empresa
 shortTitle: Configurar el SSO de SAML
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes or ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
+intro: 'Puedes controlar y asegurar el acceso a {% ifversion ghec %}los recursos como repositorios, propuestas y solicitudes de cambio dentro de las organizaciones de tu empresa{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}tu empresa en {% data variables.product.prodname_ghe_managed %}{% endif %} si {% ifversion ghec %}requieres{% elsif ghes or ghae %}configuras{% endif %} el inicio de sesión único (SSO) de SAML mediante tu proveedor de identidad (IdP).'
 permissions: '{% ifversion ghes %}Site administrators{% elsif ghec or ghae %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec or ghae %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
 versions:
   ghec: '*'
@@ -65,7 +65,7 @@ Después de autenticarse exitosamente en tu IdP, la sesión de SAML del usuario 
 
 ## Consideraciones sobre el nombre de usuario con SAML
 
-{% ifversion ghec %}If you use {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% ifversion ghec %}Si utilizas {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obtener más información, consulta la sección "[Consideraciones de nombre de usuario para la autenticación externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
 ## Requerir el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial
 
@@ -132,7 +132,7 @@ Puedes habilitar o inhabilitar la autenticación de SAML para {% data variables.
 
    ![Captura de pantalla de la casilla de verificación "Habilitar aserciones cifradas" dentro de la sección de "Autenticación"de la consola de administración](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
 {%- endif %}
-1. En el campo **URL de inicio de sesión único**, teclea la terminal HTTP o HTTPS en tu IdP para las solicitudes de inicio de sesión único. Este valor lo provee la configuración de tu IdP. Si el host solo se encuentra disponible en tu red interna, podrías necesitar [configurar {% data variables.product.product_location %} para utilizar servidores de nombres internos](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
+1. En el campo **URL de inicio de sesión único**, teclea la terminal HTTP o HTTPS en tu IdP para las solicitudes de inicio de sesión único. Este valor lo provee la configuración de tu IdP. Si el host solo se encuentra disponible en tu red interna, podrías necesitar [configurar {% data variables.product.product_location %} para utilizar servidores de nombres internos](/enterprise/admin/guides/installation/configuring-dns-nameservers/).
 
    ![Captura de pantalla del campo de texto para la URL de inicio de sesión único](/assets/images/enterprise/management-console/saml-single-sign-url.png)
 1. Opcionalmente, en el campo de **Emisor**, teclea el nombre del emisor SAML. Esto verifica la autenticidad de los mensajes que se envían a {% data variables.product.product_location %}.

@@ -56,8 +56,8 @@ Las AMIs para {% data variables.product.prodname_ghe_server %} se encuentran dis
 ### Utilizar el portal {% data variables.product.prodname_ghe_server %} para seleccionar una AMI
 
 {% data reusables.enterprise_installation.download-appliance %}
-3. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
-4. Select the "Select your AWS region" drop-down menu, and click your desired region.
+3. Debajo de "{% data variables.product.prodname_dotcom %} en la nube", selecciona el menú desplegable "Selecciona tu plataforma" y haz clic en **Amazon Web Services**.
+4. Selecciona el menú desplegable "Selecciona tu región de AWS" y haz clic en tu región deseada.
 5. Toma nota de la ID de AMI que se muestra.
 
 ### Utilizar la CLI de AWS para seleccionar una AMI
@@ -124,7 +124,7 @@ aws ec2 run-instances \
 
 Si esta es una instancia de producción, recomendamos firmemente asignar una IP elástica (EIP) y asociarla con la instancia antes de continuar con la configuración del {% data variables.product.prodname_ghe_server %}. De lo contrario, la dirección IP pública de la instancia no se conservará después de que se reinicie la instancia. Para obtener más información, consulta "[Asignar una dirección IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" y "[Asociar una dirección IP elástica con una instancia en ejecución](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" en la documentación de Amazon.
 
-Tanto en la instancia principal y en la de réplica deberían asignarse EIP separadas en las configuraciones de alta disponibilidad de producción. Para obtener más información, consulta "[Configurar el {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
+Tanto en la instancia principal y en la de réplica deberían asignarse EIP separadas en las configuraciones de alta disponibilidad de producción. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)."
 
 ## Configurar la instancia de {% data variables.product.prodname_ghe_server %}
 

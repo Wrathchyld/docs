@@ -29,7 +29,7 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 {% endif %}
 
@@ -48,7 +48,7 @@ Billing managers are users who can manage the billing settings for your organiza
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### Security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -101,8 +101,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |  | **X**  |
 | See all organization members and teams | **X** | **X** | **X** |  | **X**  |
 | @mention any visible team | **X** | **X** | **X** |  | **X**  |
-| Can be made a *team maintainer* | **X** | **X** | **X** |  | **X** |
-| View organization insights (see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization)") | **X** | **X** | **X** |  | **X**  |
+| Can be made a *team maintainer* | **X** | **X** | **X** |  | **X** |{% ifversion ghec %}
+| View organization insights (see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization)") | **X** | **X** | **X** |  | **X**  |{% endif %}
 | View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** | **X** |  | **X**  |
 | View and post private team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |  |  |
 | Edit and delete team discussions in **all teams** (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)") | **X** |  |  |  |  |
@@ -110,8 +110,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Hide comments on writable commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |  | **X** |
 | Hide comments on _all_ commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** |  | **X** |  | **X** |
 | Block and unblock non-member contributors (see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)") | **X** |  | **X** |  |  |
-| Limit interactions for certain users in public repositories (see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)") | **X** |  | **X** |  |  |
-| Manage viewing of organization dependency insights (see "[Changing the visibility of your organization's dependency insights](/articles/changing-the-visibility-of-your-organizations-dependency-insights)") | **X** |  |  |  |  |
+| Limit interactions for certain users in public repositories (see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)") | **X** |  | **X** |  |  |{% ifversion ghec %}
+| Manage viewing of organization dependency insights (see "[Changing the visibility of your organization's dependency insights](/articles/changing-the-visibility-of-your-organizations-dependency-insights)") | **X** |  |  |  |  |{% endif %}
 | Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |  |  |
 | Sponsor accounts and manage the organization's sponsorships (see "[Sponsoring open-source contributors](/sponsors/sponsoring-open-source-contributors)") | **X** |  |  | **X** | **X**  |
 | Manage email updates from sponsored accounts (see "[Managing updates from accounts your organization's sponsors](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)") | **X** |  |  |  |  |
@@ -139,7 +139,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  |  |  |  |
 
-{% elsif ghes > 3.2 or ghae-issue-4999 %}
+{% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | Organization action | Owners | Members | Security managers |
@@ -181,7 +181,7 @@ Some of the features listed below are limited to organizations using {% data var
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |  |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |  |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |  |
-| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% if pull-request-approval-limit %}
+| Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |  |{% ifversion pull-request-approval-limit %}
 | Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)") | **X** |  | |  |{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 

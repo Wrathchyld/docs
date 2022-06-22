@@ -30,7 +30,7 @@ shortTitle: 组织中的角色
 
 您可以将个人或团队分配到各种组织级角色，以控制成员对组织及其资源的访问权限。 有关每个角色中包含的各个权限的更多详细信息，请参阅“[组织角色的权限](#permissions-for-organization-roles)”。
 
-{% if enterprise-owner-join-org %}
+{% ifversion enterprise-owner-join-org %}
 如果您的组织由企业帐户拥有，则企业所有者可以选择以任何角色加入您的组织。 更多信息请参阅“[在企业拥有的组织中管理您的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
 {% endif %}
 
@@ -49,7 +49,7 @@ shortTitle: 组织中的角色
 
 {% endif %}
 
-{% if security-managers %}
+{% ifversion security-managers %}
 ### 安全管理员
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -103,8 +103,9 @@ shortTitle: 组织中的角色
 | 创建项目板（请参阅“[组织的项目板权限](/articles/project-board-permissions-for-an-organization)”）                                                                                                                                                               | **X** | **X** | **X** |       |            **X**            |
 | 查看所有组织成员和团队                                                                                                                                                                                                                                   | **X** | **X** | **X** |       |            **X**            |
 | @提及任何可见团队                                                                                                                                                                                                                                     | **X** | **X** | **X** |       |            **X**            |
-| 可成为*团队维护员*                                                                                                                                                                                                                                    | **X** | **X** | **X** |       |            **X**            |
-| 查看组织洞见（请参阅“[查看用于组织的洞见](/articles/viewing-insights-for-your-organization)”）                                                                                                                                                                    | **X** | **X** | **X** |       |            **X**            |
+| 可成为*团队维护员*                                                                                                                                                                                                                                    | **X** | **X** | **X** |       | **X** |{% ifversion ghec %}
+| 查看组织洞见（请参阅“[查看用于组织的洞见](/articles/viewing-insights-for-your-organization)”）                                                                                                                                                                    | **X** | **X** | **X** |       |     **X**  
+{% endif %}
 | 查看并发布公共团队讨论到**所有团队**（请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”）                                                                                                                                       | **X** | **X** | **X** |       |            **X**            |
 | 查看并发布私有团队讨论到**所有团队**（请参阅“[关于团队讨论](/organizations/collaborating-with-your-team/about-team-discussions)”）                                                                                                                                       | **X** |       |       |       |                             |
 | 编辑和删除**所有团队**的团队讨论（请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)”）                                                                                                                           | **X** |       |       |       |                             |
@@ -112,8 +113,9 @@ shortTitle: 组织中的角色
 | 隐藏对可写提交、拉取请求和议题的评论（请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)”）                                                                                                         | **X** | **X** | **X** |       |            **X**            |
 | 隐藏对_所有_提交、拉取请求和议题的评论（请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)”）                                                                                                       | **X** |       | **X** |       |            **X**            |
 | 阻止和取消阻止非成员贡献者（请参阅“[阻止用户参与您的组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”）                                                                                                                       | **X** |       | **X** |       |                             |
-| 限制公共存储库中某些用户的交互（请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”）                                                                                                               | **X** |       | **X** |       |                             |
-| 管理组织依赖项洞见的显示（请参阅“[更改组织依赖项洞见的可见性](/articles/changing-the-visibility-of-your-organizations-dependency-insights)”）                                                                                                                               | **X** |       |       |       |                             |
+| 限制公共存储库中某些用户的交互（请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”）                                                                                                               | **X** |       | **X** |       |    |{% ifversion ghec %}
+| 管理组织依赖项洞见的显示（请参阅“[更改组织依赖项洞见的可见性](/articles/changing-the-visibility-of-your-organizations-dependency-insights)”）                                                                                                                               | **X** |       |       |       |        
+{% endif %}
 | 设置**所有团队**的团队头像（请参阅“[设置团队的头像](/articles/setting-your-team-s-profile-picture)”）                                                                                                                                                                | **X** |       |       |       |                             |
 | 赞助帐户和管理组织的赞助（请参阅“[赞助开源贡献者](/sponsors/sponsoring-open-source-contributors)”）                                                                                                                                                                   | **X** |       |       | **X** |            **X**            |
 | 管理赞助帐户的电子邮件更新（请参阅“[管理组织赞助帐户的更新](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)”）                                                                                                    | **X** |       |       |       |                             |
@@ -144,7 +146,7 @@ shortTitle: 组织中的角色
 {% endif %}
 | 管理组织中的拉取请求审核（请参阅“[管理组织中的拉取请求审核](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”）                                                                                                           | **X** |       |       |       |                             |
 
-{% elsif ghes > 3.2 or ghae-issue-4999 %}
+{% elsif ghes > 3.2 or ghae %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 | 组织操作                                                                                                                                                                                                                                          |  所有者  |  成员   |                    安全管理员                     |
@@ -189,7 +191,7 @@ shortTitle: 组织中的角色
 | 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                       | **X** |       |                                              |
 | [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                   | **X** |       |                                              |
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                       | **X** |       |                                              |
-| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                          | **X** |       |    |{% if pull-request-approval-limit %}
+| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                          | **X** |       | |{% ifversion pull-request-approval-limit %}
 | 管理组织中的拉取请求审核（请参阅“[管理组织中的拉取请求审核](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)”）                                                                                                           | **X** |       |               |  
 {% endif %}
 {% ifversion ghae %}| 管理 IP 允许列表（请参阅“[限制到企业的网络流量](/admin/configuration/restricting-network-traffic-to-your-enterprise)”）| **X** | |  |{% endif %}
